@@ -4,8 +4,8 @@ This repo contains the code to demonstrate how to use AWS KMS to sign transactio
 
 ## Prerequisite
 
-1. AWS account with access key id and secret key - Please check out this [link](https://aws.amazon.com/premiumsupport/knowledge-center/create-access-key/) to learn how to it.
-2. Set up KMS on AWS - Create a new key with key type `Asymmetric`, key usage `Sign and verify`, and key spec `ECC_SECG_P256K1` on AWS KMS. Please make sure you give the permission to access KMS to the new access key id and secret key you just created at step one.
+1. AWS account with access key id and secret key - please check out this [link](https://aws.amazon.com/premiumsupport/knowledge-center/create-access-key/) to learn how to create access key id and secret key.
+2. Set up KMS on AWS - create a new key with key type `Asymmetric`, key usage `Sign and verify`, and key spec `ECC_SECG_P256K1` on AWS KMS. Please make sure you give the KMS access permission to the new access key id and secret key you just created at step one.
 3. Hedera test account - if you don't have an account, please check out [portal](https://portal.hedera.com/register/) and register to get one.
 
 ## Install
@@ -16,7 +16,7 @@ npm install
 
 ## Run
 
-You need to specify the environment variables in .env before you can run the code. All environment vars are required
+You need to specify the environment variables in .env before you can run the code. All environment variables are required
 
 ```bash
 mv .env_sample .env
