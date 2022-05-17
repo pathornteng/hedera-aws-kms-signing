@@ -1,0 +1,27 @@
+{
+  "name": "hedera-aws-kms-signing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pathornteng/hedera-aws-kms-signing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pathornteng/hedera-aws-kms-signing/issues"
+  },
+  "homepage": "https://github.com/pathornteng/hedera-aws-kms-signing#readme",
+  "dependencies": {
+    "@aws-sdk/client-kms": "^3.92.0",
+    "@hashgraph/sdk": "^2.14.0",
+    "asn1.js": "^5.4.1",
+    "dotenv": "^16.0.1",
+    "elliptic": "^6.5.4",
+    "keccak256": "^1.0.6"
+  }
+}
