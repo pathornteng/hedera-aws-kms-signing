@@ -1,5 +1,5 @@
-let elliptic = require("elliptic");
-let ec = new elliptic.ec("secp256k1");
+const elliptic = require("elliptic");
+const ec = new elliptic.ec("secp256k1");
 const keccak256 = require("keccak256");
 const asn1 = require("asn1.js");
 const {
@@ -20,7 +20,7 @@ dotenv.config();
 
 const kmsClient = new KMSClient({
   credentials: {
-    // credentials for your IAM user with KMS access
+    // Credentials for your IAM user with KMS access
     accessKeyId: process.env.AWS_KMS_ACCESS_KEY_ID,
     secretAccessKey: process.env.AWS_KMS_SECRET_ACCESSS_KEY,
   },
@@ -35,7 +35,7 @@ const signingInput = {
 };
 
 const EcdsaSigAsnParse = asn1.define("EcdsaSig", function () {
-  // parsing this according to https://tools.ietf.org/html/rfc3279#section-2.2.3
+  // Parsing this according to https://tools.ietf.org/html/rfc3279#section-2.2.3
   this.seq().obj(this.key("r").int(), this.key("s").int());
 });
 
@@ -43,10 +43,9 @@ async function transactionSigner(bytesToSign) {
   console.log("Signing transaction in transactionSigner");
   // Create keccak256 message digest
   const dataHex = Buffer.from(bytesToSign).toString("hex");
-  const data = Buffer.from(keccak256(`0x${dataHex}`)).toString("hex");
-  const hash = Buffer.from(data, "hex");
+  const hash = keccak256(`0x${dataHex}`);
 
-  // Send digest to KMS for singing
+  // Send digest to KMS for signing
   signingInput.Message = hash;
   const command = new SignCommand(signingInput);
   const response = await kmsClient.send(command);
@@ -131,9 +130,10 @@ const main = async () => {
       transactionReceipt.status.toString()
   );
   let transactionId = sendHbar.transactionId.toString();
-  transactionId = transactionId.replace("@", "-");
-  transactionId = transactionId.replace(/\./g, "-");
-  transactionId = transactionId.replace(/0-/g, "0.");
+  transactionId = transactionId
+    .replace("@", "-")
+    .replace(/\./g, "-")
+    .replace(/0-/g, "0.");
   console.log(
     "Check transaction here: https://hashscan.io/#/testnet/transaction/" +
       transactionId
