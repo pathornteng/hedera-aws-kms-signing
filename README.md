@@ -1,4 +1,4 @@
-# hedera-aws-kms-signing
+# Hedera AWS KMS Signing
 
 This repo contains the code to demonstrate how to use AWS KMS to sign transactions for Hedera Network.
 
@@ -11,16 +11,25 @@ This repo contains the code to demonstrate how to use AWS KMS to sign transactio
 ## Install
 
 ```bash
+bun install
+```
+
+OR
+
+```bash
 npm install
 ```
 
 ## Run
 
-You need to specify the environment variables in .env before you can run the code. All environment variables are required
+```bash
+bun run start
+```
+
+OR
 
 ```bash
-mv .env_sample .env
-node index.js
+npm run start
 ```
 
 if the code run successfully, you should see something similar to the following messages
